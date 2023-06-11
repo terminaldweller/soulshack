@@ -40,7 +40,7 @@ func init() {
 	// openai configuration
 	root.PersistentFlags().String("openaikey", "", "openai api key")
 	root.PersistentFlags().Int("maxtokens", 512, "maximum number of tokens to generate")
-	root.PersistentFlags().String("model", ai.GPT4, "model to be used for responses (e.g., gpt-4)")
+	root.PersistentFlags().String("model", ai.GPT3Dot5Turbo, "model to be used for responses (e.g., gpt-4)")
 
 	// timeouts and behavior
 	root.PersistentFlags().BoolP("addressed", "a", true, "require bot be addressed by nick for response")
