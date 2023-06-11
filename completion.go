@@ -17,7 +17,6 @@ func ChatCompletionTask(ctx *ChatContext) <-chan *string {
 }
 
 func chatCompletionStream(cc *ChatContext, channel chan<- *string) {
-
 	defer close(channel)
 	cc.Stats()
 
@@ -30,7 +29,6 @@ func chatCompletionStream(cc *ChatContext, channel chan<- *string) {
 		Messages:  cc.Session.GetHistory(),
 		Stream:    true,
 	})
-
 	if err != nil {
 		senderror(err, channel)
 		return
@@ -83,7 +81,6 @@ type Chunker struct {
 }
 
 func (c *Chunker) Chunk() (bool, *[]byte) {
-
 	end := c.Size
 	if c.Buffer.Len() < end {
 		end = c.Buffer.Len()

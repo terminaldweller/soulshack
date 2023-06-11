@@ -38,7 +38,6 @@ func sendMessage(ctx *ChatContext, message *string) {
 var configParams = map[string]string{"prompt": "", "model": "", "nick": "", "greeting": "", "goodbye": "", "directory": "", "session": "", "addressed": ""}
 
 func handleSet(ctx *ChatContext) {
-
 	if !ctx.IsAdmin() {
 		ctx.Reply("You don't have permission to perform this action.")
 		return
@@ -68,7 +67,6 @@ func handleSet(ctx *ChatContext) {
 }
 
 func handleGet(ctx *ChatContext) {
-
 	tokens := ctx.Args
 	if len(tokens) < 2 {
 		ctx.Reply(fmt.Sprintf("Usage: /get %s", keysAsString(configParams)))
@@ -86,7 +84,6 @@ func handleGet(ctx *ChatContext) {
 }
 
 func handleSave(ctx *ChatContext) {
-
 	tokens := ctx.Args
 	if !ctx.IsAdmin() {
 		ctx.Reply("You don't have permission to perform this action.")
@@ -117,7 +114,6 @@ func handleSave(ctx *ChatContext) {
 }
 
 func handleBecome(ctx *ChatContext) {
-
 	if !ctx.IsAdmin() {
 		ctx.Reply("You don't have permission to perform this action.")
 		return
@@ -151,7 +147,6 @@ func handleList(ctx *ChatContext) {
 }
 
 func handleLeave(ctx *ChatContext) {
-
 	if !ctx.IsAdmin() {
 		ctx.Reply("You don't have permission to perform this action.")
 		return
@@ -183,7 +178,6 @@ func handleDefault(ctx *ChatContext) {
 }
 
 func handleSay(ctx *ChatContext) {
-
 	if !ctx.IsAdmin() {
 		ctx.Reply("You don't have permission to perform this action.")
 		return

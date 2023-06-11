@@ -16,7 +16,6 @@ import (
 )
 
 func init() {
-
 	cobra.OnInitialize(initConfig)
 
 	// irc client configuration
@@ -25,6 +24,9 @@ func init() {
 	root.PersistentFlags().BoolP("ssl", "e", false, "enable SSL for the IRC connection")
 	root.PersistentFlags().IntP("port", "p", 6667, "irc server port")
 	root.PersistentFlags().StringP("channel", "c", "", "irc channel to join")
+	root.PersistentFlags().StringP("nickservnick", "", "", "")
+	root.PersistentFlags().StringP("nickservpass", "", "", "")
+	root.PersistentFlags().StringP("sasl", "", "PLAIN", "")
 
 	// bot configuration
 	root.PersistentFlags().StringP("become", "b", "chatbot", "become the named personality")
@@ -60,7 +62,6 @@ func init() {
 }
 
 func initConfig() {
-
 	fmt.Println(getBanner())
 
 	if _, err := os.Stat(vip.GetString("directory")); errors.Is(err, fs.ErrNotExist) {
