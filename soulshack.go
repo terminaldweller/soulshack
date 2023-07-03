@@ -51,10 +51,16 @@ func run(r *cobra.Command, _ []string) {
 		log.Fatal(err)
 	}
 
+	saslPlain := &girc.SASLPlain{
+		User: vip.GetString("nickservnick"),
+		Pass: vip.GetString("nickservpass"),
+	}
+
 	irc := girc.New(girc.Config{
 		Server:    vip.GetString("server"),
 		Port:      vip.GetInt("port"),
 		Nick:      vip.GetString("nick"),
+		SASL:      saslPlain,
 		User:      "soulshack",
 		Name:      "soulshack",
 		SSL:       vip.GetBool("ssl"),

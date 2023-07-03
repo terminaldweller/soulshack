@@ -25,6 +25,8 @@ func init() {
 	root.PersistentFlags().BoolP("ssl", "e", false, "enable SSL for the IRC connection")
 	root.PersistentFlags().IntP("port", "p", 6667, "irc server port")
 	root.PersistentFlags().StringP("channel", "c", "", "irc channel to join")
+	root.PersistentFlags().StringP("saslnick", "", "", "nick used for SASL")
+	root.PersistentFlags().StringP("saslpass", "", "", "password for SASL plain")
 
 	// bot configuration
 	root.PersistentFlags().StringP("become", "b", "chatbot", "become the named personality")
